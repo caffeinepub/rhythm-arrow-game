@@ -1,0 +1,103 @@
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('/assets/fonts/BricolageGrotesque.woff2') format('woff2');
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/assets/fonts/JetBrainsMono.woff2') format('woff2');
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0.12 0.01 260;
+    --foreground: 0.95 0.02 140;
+    --card: 0.14 0.015 260;
+    --card-foreground: 0.95 0.02 140;
+    --popover: 0.14 0.015 260;
+    --popover-foreground: 0.95 0.02 140;
+    --primary: 0.78 0.22 145;
+    --primary-foreground: 0.08 0.01 260;
+    --secondary: 0.18 0.02 260;
+    --secondary-foreground: 0.85 0.04 140;
+    --muted: 0.18 0.02 260;
+    --muted-foreground: 0.55 0.04 200;
+    --accent: 0.65 0.25 145;
+    --accent-foreground: 0.08 0.01 260;
+    --destructive: 0.62 0.24 25;
+    --destructive-foreground: 0.98 0.01 0;
+    --border: 0.22 0.03 260;
+    --input: 0.22 0.03 260;
+    --ring: 0.78 0.22 145;
+    --radius: 0.5rem;
+    --chart-1: 0.78 0.22 145;
+    --chart-2: 0.68 0.18 200;
+    --chart-3: 0.72 0.2 170;
+    --chart-4: 0.85 0.18 90;
+    --chart-5: 0.65 0.24 25;
+    --sidebar: 0.10 0.01 260;
+    --sidebar-foreground: 0.85 0.04 140;
+    --sidebar-primary: 0.78 0.22 145;
+    --sidebar-primary-foreground: 0.08 0.01 260;
+    --sidebar-accent: 0.18 0.02 260;
+    --sidebar-accent-foreground: 0.85 0.04 140;
+    --sidebar-border: 0.22 0.03 260;
+    --sidebar-ring: 0.78 0.22 145;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Bricolage Grotesque', sans-serif;
+  }
+}
+
+/* Neon glow effects */
+.neon-glow {
+  text-shadow: 0 0 10px oklch(0.78 0.22 145 / 0.8), 0 0 30px oklch(0.78 0.22 145 / 0.4), 0 0 60px oklch(0.78 0.22 145 / 0.2);
+}
+
+.neon-box-glow {
+  box-shadow: 0 0 15px oklch(0.78 0.22 145 / 0.5), 0 0 40px oklch(0.78 0.22 145 / 0.2), inset 0 0 15px oklch(0.78 0.22 145 / 0.05);
+}
+
+.neon-border {
+  border-color: oklch(0.78 0.22 145 / 0.6);
+  box-shadow: 0 0 10px oklch(0.78 0.22 145 / 0.3);
+}
+
+/* Scanline overlay */
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    oklch(0 0 0 / 0.04) 2px,
+    oklch(0 0 0 / 0.04) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Grid background */
+.grid-bg {
+  background-image: 
+    linear-gradient(oklch(0.78 0.22 145 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.78 0.22 145 / 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
